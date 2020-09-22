@@ -1,0 +1,25 @@
+NAME: Sadhana Vadrevu
+EMAIL: sadhana.vadrevu@gmail.com
+ID: 205095030
+
+Included files:
+   - lab0.c = C source code that parses options and implements program that copies standard input to standard output
+     options:
+	--input=[filename] : use specified file as standard input (exit with 2 if fails)
+	--output=[filename] : create specified file and use as standard output (exit with 3 if fails)
+	--segfault : force a segmentation fault
+	--catch : register signal handler that deals with segmentation fault and exit with return code 4\
+     (exits with 1 if invalid argument is found)
+   - test.sh = external bash script containing smoke tests for lab0.c
+   - Makefile = builds program and tarball (targets: check = smoke tests, clean = rm all created files, dist = make tarball)
+   - backtrace.png = shows segfault and associated stack-trace in gdb session
+   - breakpoint.png  = shows breakpoint and variable inspection before segfault in gdb
+
+make check => smoke tests:
+   - test for correct exit code (1) when given invalid  option (short and long)
+   - test for correct exit code (2) when trying to open nonexistent file for input
+   - test for correct axit code (3) when trying to write to inaccessible file for output
+   - test for correct exit code (139) when segfault occurs
+   - test for correct exit code (4) when segfault occurs with catch option on
+   - test for correct functionality when input and output are valid files
+   - test for correct exit code when dealing with --segfault option as well as invalid input and output files
